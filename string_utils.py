@@ -15,17 +15,22 @@ def split_before_each_uppercases(formula):
 
 
 def split_before_each_uppercases(formula):
-    if not formula:
+    # Handle empty string right away
+    if formula == "":
         return []
     
     split_formula = []
     start = 0
+    end = 1
     
-    for i in range(1, len(formula)):
-        if formula[i].isupper():
-            split_formula.append(formula[start:i])
-            start = i 
+    # Loop from second character onward
+    for char in formula[1:]:
+        if char.isupper():
+            split_formula.append(formula[start:end])
+            start = end
+        end += 1
     
-    split_formula.append(formula[start:])
+    # Append last segment
+    split_formula.append(formula[start:end])
     
     return split_formula
