@@ -27,5 +27,5 @@ def split_before_each_uppercases(formula):
             split_formula.append(formula[start:end])
             start = end
         end += 1
-
+    split_formula.append(formula[start:end])
     return split_formula
